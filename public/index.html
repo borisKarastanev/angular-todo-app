@@ -8,7 +8,15 @@
     <script type="application/javascript" src="libs/js/angular-route.min.js"></script>
     <script type="application/javascript" src="js/app.js"></script>
 </head>
-<body ng-app="todoApp">
+<body ng-app="todoApp" ng-controller="app">
     <h1>Angular Todoooo</h1>
+    <h3>Add A Task!</h3>
+    <input type="text" ng-model="newTask.task">
+    <button ng-click="addTask(newTask)">Add Task</button>
+    <section id="todos">
+        <ul ng-init="getAllTodos()">
+            <li ng-repeat="todo in myTasks">{{todo.task + ' ' + todo.date + ' ' + todo.done}}</li>
+        </ul>
+    </section>
 </body>
 </html>
